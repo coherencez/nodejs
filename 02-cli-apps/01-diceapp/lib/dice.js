@@ -10,11 +10,14 @@ const dice = {
   roll: (str) => {
     let arr = str.split('d'),
     counter = 0
-    while (counter < arr[0]) {
-      console.log(randomInt(arr[1]))
-      counter++
+    if(str === 'undefineddundefined') {
+      console.log(randomInt())
+    } else {
+      while (counter < arr[0]) {
+        console.log(randomInt(arr[1]))
+        counter++
+      }
     }
-    return;
   }
 }
 
