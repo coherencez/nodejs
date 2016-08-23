@@ -1,0 +1,15 @@
+{
+  "name": "06-3rd_party_modules",
+  "version": "1.0.0",
+  "description": "",
+  "main": "06.js",
+  "dependencies": {
+    "chalk": "^1.1.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
