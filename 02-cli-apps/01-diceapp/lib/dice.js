@@ -8,8 +8,8 @@ const dice = {
   },
 
   roll: (str) => {
-    let arr = str.split('d'),
-    counter = 0
+    let counter = 0,
+            arr = str.split('d')
     if(str === 'undefineddundefined') {
       console.log(randomInt())
     } else {
