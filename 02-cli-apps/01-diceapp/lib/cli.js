@@ -7,10 +7,9 @@ const {toDiceNotation, roll} = require('./dice'),
 // function calls
 const    parsedArgsObj = parseArgs(...cliArgs),
     diceNotationString = toDiceNotation(parsedArgsObj)
-                         roll(diceNotationString)
-            // rollResult = roll(diceNotationString)
+            //, rollResult = roll(diceNotationString)
             //, result = roll(toDiceNotation(parseArgs(...cliArgs)))
 
-
+roll(diceNotationString)
 // console.log(rollResult)
 // console.log(result)

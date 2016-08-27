@@ -1,5 +1,5 @@
 {
-  "name": "01-diceapp",
+  "name": "diceapp",
   "version": "1.0.0",
   "bin": "./bin/diceroll",
   "description": "",
