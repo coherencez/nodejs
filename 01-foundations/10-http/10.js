@@ -11,27 +11,42 @@ const [,,...cliArgs] = process.argv
 // const      starStyle = chalk.white.bgBlue.bold
 
 // functions
-const getQueryString = (symbol) => {
+// const getQueryString = (symbol) => {
+//
+//   let baseURL = "http://dev.markitondemand.com/MODApis/Api/v2/InteractiveChart/json?parameters="
+//   let parameters = {
+//     "Normalized": false,
+//     "NumberOfDays": 365,
+//     "DataPeriod": "Day",
+//     "Elements": [
+//       {
+//         "Symbol": symbol.toUpperCase(),
+//         "Type": "price",
+//         "Params":["c"]
+//       }
+//     ]
+//   }
+//   let queryURL = baseURL + JSON.stringify(parameters)
+//
+//   // console.log(queryURL)
+//
+//   return queryURL
+// }
 
-  let baseURL = "http://dev.markitondemand.com/MODApis/Api/v2/InteractiveChart/json?parameters="
-  let parameters = {
+const initialURL = 'http://dev.markitondemand.com/MODApis/Api/v2/InteractiveChart/json?parameters='
+
+const passedParams = {
     "Normalized": false,
     "NumberOfDays": 365,
     "DataPeriod": "Day",
-    "Elements": [
-      {
-        "Symbol": symbol.toUpperCase(),
-        "Type": "price",
-        "Params":["c"]
-      }
-    ]
+    "Elements":[{
+      "Symbol": cliArgs[0],
+      "Type":"price",
+      "Params":["c"]
+    }]
   }
-  let queryURL = baseURL + JSON.stringify(parameters)
 
-  // console.log(queryURL)
-
-  return queryURL
-}
+const url= initialURL + JSON.stringify(passedParams)
 
 
 const      lineBreak = new Transform({
@@ -60,9 +75,9 @@ writeStream._write = (buffer, _, cb) => {
 //   .pipe(lineBreak)
 //   .pipe(writeStream)
 
-const query = getQueryString(cliArgs[0])
+// const query = getQueryString(cliArgs[0])
 
-get(query, (res) => {
+get(url, (res) => {
   res.setEncoding("utf8")
 
 
@@ -73,13 +88,13 @@ get(query, (res) => {
   })
 
   res.on('end', () => {
-    let        stockPrices = data/*JSON.parse(data),*/
-    // console.log('TEST DATA',stockPrices)
+
+    let        stockPrices = data /*JSON.parse(data),*/
+    console.log('TEST DATA',stockPrices)
         // {Elements, Labels} = stockPrices,
         //       {DataSeries} = Elements[0],
         //            {close} = DataSeries,
         //           {values} = close
-
 
 
 
