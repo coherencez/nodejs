@@ -1,13 +1,13 @@
 {
-  "name": "diceapp",
+  "name": "testing-test",
   "version": "1.0.0",
-  "bin": "./bin/diceroll",
   "description": "",
-  "main": "diceroll",
+  "main": "index.js",
   "scripts": {
     "test": "mocha",
     "coverage": "istanbul cover _mocha"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
