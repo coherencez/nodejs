@@ -1,23 +1,22 @@
-const {Should, assert} = require('chai')
+const               {assert} = require('chai')
+const {toDiceNotation, roll} = require('../lib/dice')
 
-const {parseArgs} = require('../lib/dice')
-	, [,,...args] = process.argv
+describe('Testing', function() {
+  describe('dice lib', function() {
+    it('should return sring with dice notation', function() {
+      const testObj = {
+        count: 2,
+        sides: 10
+      }
+      const expected = '2d10'
+      assert.equal(expected, toDiceNotation(testObj))
+    })
 
+    it('should return array', function() {
+      const string =  '2d10'
+      const expected = ['2', '10']
 
-describe('Dice obj', function() {
-	describe('parseArgs()', function() {
-
-		it('be an object ', function() {
-			assert.equal('object', typeof parseArgs(5, 20))
-		})
-
-		it('return obj with 2 keys, count && sides ', function() {
-			assert.equal(`${{count: 5, sides: 20}}`, parseArgs(5, 20))
-		})
-
-		it('accept cli arguments ', function() {
-			assert.equal(`${{count: 'hello', sides: 'from cli'}}`, parseArgs(args[0], args[1]))
-		})
-
-	})
+      assert.equal(roll(string), expected)
+    })
+  })
 })
