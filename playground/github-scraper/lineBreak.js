@@ -1,7 +1,7 @@
 'use strict'
-const {Readable, Writable, Transform} = require('stream')
+const {Transform} = require('stream')
 
-const      lineBreak = new Transform({
+const lineBreak = new Transform({
   transform(buffer, _, cb) {
     let stringArr = buffer.toString().split(','),
       writeString = ''
