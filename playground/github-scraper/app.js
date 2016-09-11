@@ -17,6 +17,14 @@ const express = require('express')
   ,        app = express()
   ,        uri = `https://github.com/${cliArgs[0]}`
 
+
+function exit () {
+  console.log(`\nFiles have been saved in ${__dirname}\nGood Bye`)
+  setTimeout(() => {
+    process.exit(-1)  
+  }, 1000)
+}
+
 app.set('port', port)
 app.set('view engine', 'pug')
 // MIDDLEWAREZ
@@ -34,7 +42,7 @@ fetch(uri)
   .then(arr     => parseData(arr))
   .then(dataObj => {
     const {day, week, month} = dataObj
-    if(cliFlags.includes('s')) {buildFiles(dataObj); process.exit(-1)}
+    if(cliFlags.includes('s')) {buildFiles(dataObj); exit()}
     if(cliFlags.includes('w')) {
       app.get('/', (req,res) => {
         res.render('index',{name: `${cliArgs[0]}`, day, week, month })
