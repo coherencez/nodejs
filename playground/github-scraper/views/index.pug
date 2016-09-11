@@ -1,0 +1,15 @@
+- const dayCommitString = `${name} has made ${day[0]['data-count']} commits on ${day[0]['data-date']}`
+- const weekString = `${week.map(v => v['data-count']).map(v => Number(v)).reduce((p,c) => p + c)} commits in a week`
+- const monthString = `and ${month.map(v => v['data-count']).map(v => Number(v)).reduce((p,c) => p + c)} commits in the past month`
+
+doctype html
+html
+	head
+		title GitHub Commit Data
+		link(rel='stylesheet', href='css/main.css')
+	body
+		h1 Commit Tracker
+		ul
+			li: p= dayCommitString
+			li: p= weekString
+			li: p= monthString
